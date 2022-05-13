@@ -5,6 +5,7 @@ class DateHelper{
     }
 
     dataParaTexto(data){
+        /\d{4}-\d{2}-\d{2}/
         return `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()} `;
     }
 
