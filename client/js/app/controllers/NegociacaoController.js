@@ -9,21 +9,21 @@ class NegociacaoController {
     }
     adiciona(event){
         event.preventDefault();
-
-        let helper = new DateHelper();
         
-        let negociacao = new Negociacao(
-            helper.textoParaData(this._inputData.value),
+        this._listaNegociacoes.adiciona(this._criaNegociação());
+        this._limpaForumlario();
+    }
+    _criaNegociação(){
+        return new Negociacao(
+            DateHelper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
             this._inputValor
-        );
-        this._listaNegociacoes.adiciona(negociacao);
-        this._limpaForumlario();
+        )
     }
     _limpaForumlario(){
         this._inputData.value = '';
         this._inputQuantidade.value = 1;
         this._inputValor.value = 0.0;
-        this._inputQuantidade.focus();
+        this._inputData.focus();
     }
 }
